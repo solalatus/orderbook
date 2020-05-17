@@ -15,7 +15,7 @@ class ComplexIterator(object):
     def __iter__(self):
         return self
 
-    def next(self):
+    def __next__(self):
         # Use latest order value (by hasNext)
         if self._hasnext:
             result = self._next_order_value
