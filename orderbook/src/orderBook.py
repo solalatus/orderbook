@@ -23,8 +23,9 @@ class OrderBook(object):
             matching_tree = self.bids if curr_order.is_bid else self.asks
             matching_tree.insert_price_order(curr_order)
         # First print all trades
-        for order in trades:
-            order.print_trade_result(curr_order.id)
+        if printout:
+            for order in trades:
+                order.print_trade_result(curr_order.id)
         curr_order.trade_size = 0
         # And then the LOB state
         if printout:
