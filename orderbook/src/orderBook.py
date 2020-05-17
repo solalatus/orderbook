@@ -8,7 +8,7 @@ class OrderBook(object):
         self.bids = PriceTree('Bids')
         self.asks = PriceTree('Asks')
 
-    def process_order(self, curr_order):
+    def process_order(self, curr_order, printout=False):
         """
         Generic method to process a Bid or Ask order
         :param curr_order:
@@ -27,7 +27,8 @@ class OrderBook(object):
             order.print_trade_result(curr_order.id)
         curr_order.trade_size = 0
         # And then the LOB state
-        self.print_book()
+        if printout:
+            self.print_book()
         return trades
 
     def print_book(self):
